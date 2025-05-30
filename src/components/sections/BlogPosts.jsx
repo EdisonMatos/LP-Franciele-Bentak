@@ -7,29 +7,41 @@ import content from "../../content/content";
 import Paragraphs from "../sectionElements/Paragraphs";
 import MotionDivDownToUp from "../animation/MotionDivDownToUp";
 
-function BlogPosts() {
+function BlogPosts({ colorMode = "default" }) {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     fetch(content.texts.blog.blogApiEndpoint)
       .then((response) => response.json())
-      .then((data) => setPosts(data.posts)) // Ajustado para pegar a chave correta
+      .then((data) => setPosts(data.posts))
       .catch((error) => console.error("Erro ao buscar posts:", error));
   }, []);
 
+  // Estilos com base no colorMode
+  const bgClasses = {
+    dark: "bg-darker",
+    light: "bg-lighter",
+    default: "squares",
+  };
+  const textClasses = {
+    dark: "text-white",
+    light: "text-black",
+    default: "text-colorWhite",
+  };
+  const bgClass = bgClasses[colorMode] || bgClasses.default;
+  const textClass = textClasses[colorMode] || textClasses.default;
+
   return (
     <div>
-      <SectionArea className="bg-bgSectionDark" paddingtop={false}>
+      <SectionArea paddingbot={false} className={`${bgClass}`}>
         <SectionWrapper>
           <SectionHeader
-            className="text-center"
+            className={`text-center ${textClass}`}
             miniTitle={content.texts.blog.miniTag}
             sectionHeaderTitle={content.texts.blog.title}
             sectionHeaderSubtitle={content.texts.blog.subtitle}
-            color=""
-            titleColorSet="text-colorWhite"
-            subtitleColorSet="text-colorWhite"
-            type=""
+            titleColorSet={textClass}
+            subtitleColorSet={textClass}
           />
           <ul className="flex flex-wrap gap-[30px] justify-center mb-[80px]">
             {posts.slice(0, 3).map((post) => (
@@ -45,10 +57,14 @@ function BlogPosts() {
                     )
                   }
                   title={
-                    <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
+                    <h1
+                      className={textClass}
+                      dangerouslySetInnerHTML={{ __html: post.title }}
+                    />
                   }
                   subtitle={
                     <p
+                      className={textClass}
                       dangerouslySetInnerHTML={{
                         __html:
                           post.excerpt.length > 100
@@ -63,7 +79,9 @@ function BlogPosts() {
             ))}
           </ul>
           <MotionDivDownToUp>
-            <Paragraphs className="text-center text-colorWhite underline transition hover:scale-110">
+            <Paragraphs
+              className={`text-center underline transition hover:scale-110 ${textClass}`}
+            >
               <a href={content.texts.blog.blogLink} target="_blank">
                 {content.texts.blog.label}
               </a>
@@ -73,27 +91,6 @@ function BlogPosts() {
       </SectionArea>
     </div>
   );
-
-  // return (
-  //   <div>
-  //     <WordPressBlogCard />
-  //     <h2>Últimas postagens</h2>
-  //     <ul>
-  //       {posts.map((post) => (
-  //         <li key={post.ID}>
-  //           <h3 dangerouslySetInnerHTML={{ __html: post.title }} />
-  //           <p dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-  //           {post.featured_image && (
-  //             <img src={post.featured_image} alt="Imagem do post" width="300" />
-  //           )}
-  //           <a href={post.URL} target="_blank" rel="noopener noreferrer">
-  //             Ler mais
-  //           </a>
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   </div>
-  // );
 }
 
 export default BlogPosts;
