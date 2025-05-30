@@ -469,10 +469,10 @@ const content = {
         "Acompanhe conteúdos exclusivos para manter-se sempre informado.",
       img: imgSteps,
       blogApiEndpoint:
-        "https://public-api.wordpress.com/rest/v1.1/sites/blogtestepaper.wordpress.com/posts/",
+        "https://public-api.wordpress.com/rest/v1.1/sites/bentakadvespecializada.wordpress.com/posts/",
       labelCards: "Ver mais",
       label: "Clique aqui para ver todas as matérias",
-      blogLink: "https://blogtestepaper.wordpress.com/",
+      blogLink: "https://bentakadvespecializada.wordpress.com/",
     },
     faq: {
       miniTag: "TIRE SUAS DÚVIDAS",

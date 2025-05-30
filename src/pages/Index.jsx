@@ -29,7 +29,7 @@ export default function Index() {
         influencer={false}
         mesclado={false}
       />
-      {/* <BlogPosts /> */}
+      <BlogPosts />
       <Features
         colorMode={colorMode}
         defaultFeature={true}
