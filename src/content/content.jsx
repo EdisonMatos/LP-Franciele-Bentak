@@ -77,7 +77,7 @@ export const infos = {
       <p>Endereço:</p>
       <p>Rua 222, nº 258,</p>
       <p>Meia Praia Itapema - SC,</p>
-      <p>CEP 88220-000l</p>
+      <p>CEP 88220-000</p>
     </div>
   ),
   enderecoSecundario: (
