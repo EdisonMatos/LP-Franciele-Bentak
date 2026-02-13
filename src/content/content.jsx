@@ -123,21 +123,21 @@ const content = {
       ctaButtonTextResponsive: 'Contato',
     },
     hero: {
-      miniTag: 'PLANEJAMENTO PATRIMONIAL E SUCESSÓRIO',
+      miniTag: 'ESPECIALISTA EM HOLDING PATRIMONIAL E IMOBILIÁRIA',
       title: (
         <h1 className="mb-[16px]">
-          Quem planeja,
-          <span className="text-primary"> paga menos impostos</span>
+          Estruture sua
+          <span className="text-primary"> holding</span> com segurança
         </h1>
       ),
       subtitle:
-        'Evite conflitos e reduza custos com um planejamento patrimonial seguro e estratégico.',
+        'Reduza a carga tributária, proteja seus imóveis e organize sua sucessão de forma legal e estratégica.',
       heroImgPhone: heroImgPhone, // img da pessoa mobile
       heroDesktop: heroImgDesktop, //bg com foto da pessoa
       heroImg: bgHeroImg, //fundo da Hero
       heroDefaultImage: heroDefaultImg, //imagem da heroDefault Mobile
       backgroundPerson: backgroundPersonMobile,
-      ctaButtonText: 'Quero organizar meu patrimônio',
+      ctaButtonText: 'Falar com especialista',
       obsHero: {
         icon: (
           <svg
