@@ -123,11 +123,11 @@ const content = {
       ctaButtonTextResponsive: 'Contato',
     },
     hero: {
-      miniTag: 'ESPECIALISTA EM HOLDING PATRIMONIAL E IMOBILIÁRIA',
+      miniTag: 'Advogada Tributária Especialista em Holdings',
       title: (
         <h1 className="mb-[16px]">
           Estruture sua
-          <span className="text-primary"> holding</span> com segurança
+          <span className="text-primary"> Holding</span> com segurança
         </h1>
       ),
       subtitle:
@@ -137,7 +137,7 @@ const content = {
       heroImg: bgHeroImg, //fundo da Hero
       heroDefaultImage: heroDefaultImg, //imagem da heroDefault Mobile
       backgroundPerson: backgroundPersonMobile,
-      ctaButtonText: 'Falar com especialista',
+      ctaButtonText: 'Falar agora com especialista',
       obsHero: {
         icon: (
           <svg
