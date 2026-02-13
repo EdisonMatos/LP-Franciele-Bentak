@@ -157,7 +157,7 @@ const content = {
             <path d="m16 18 2 2 4-4" />
           </svg>
         ),
-        text: 'Atendimento presencial em Itapema - SC e online para todo Brasil',
+        text: 'Atendimento Online para todo Brasil e presencial em Itapema - SC',
       },
       ctaButtonAriaLabel:
         'Botão para chamada de ação para contato pelo whatsapp',
