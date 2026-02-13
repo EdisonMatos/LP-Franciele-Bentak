@@ -101,7 +101,7 @@ export const infos = {
   linkeDinProfile: 'A_Definir',
   x: 'A_Definir',
   whatsappDefaultMessage:
-    'Olá! Vim do Google e gostaria de auxílio envolvendo Holdings e Tributos. Pode me ajudar?',
+    'Olá! Vim do Google e preciso do auxílio de um(a) Advogado(a) Tributário(a). Pode me ajudar?',
   whatsChatDefaultMessage:
     'Gostaria de falar conosco agora mesmo? Clque abaixo 👇',
   slogan: '',
