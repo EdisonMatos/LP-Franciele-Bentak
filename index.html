@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -157,6 +157,23 @@ Herança e Legado.
     <meta name="theme-color" content="#ffffff" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="msapplication-TileColor" content="#ffffff" />
+
+    <!-- Event snippet for Holdins e Adv. Tribut - Clique Botão CTA conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+      function gtag_report_conversion() {
+        // var callback = function () {
+        //   if (typeof url != 'undefined') {
+        //     window.location = url
+        //   }
+        // }
+        gtag('event', 'conversion', {
+          send_to: 'AW-17873568348/-FcECM-b0PcbENyE5MpC',
+          // event_callback: callback,
+        })
+        return false
+      }
+    </script>
 
     <!-- Google tag (gtag.js) -->
     <script

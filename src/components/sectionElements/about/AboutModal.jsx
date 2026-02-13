@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import { Dialog } from "primereact/dialog";
-import "primereact/resources/themes/saga-blue/theme.css";
-import "primereact/resources/primereact.min.css";
-import "primeicons/primeicons.css";
-import content, { abstractions } from "../../../content/content";
-import Button from "../../interactives/Button";
-import { MoveRight } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-import "react-image-gallery/styles/css/image-gallery.css";
+import React, { useState } from 'react'
+import { Dialog } from 'primereact/dialog'
+import 'primereact/resources/themes/saga-blue/theme.css'
+import 'primereact/resources/primereact.min.css'
+import 'primeicons/primeicons.css'
+import content, { abstractions } from '../../../content/content'
+import Button from '../../interactives/Button'
+import { MoveRight } from 'lucide-react'
+import { FaWhatsapp } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
+import 'react-image-gallery/styles/css/image-gallery.css'
 
 export default function AboutModal() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const [visible, setVisible] = useState(false);
-  const [modalContent, setModalContent] = useState("");
-  const [modalTitle, setModalTitle] = useState("");
+  const [visible, setVisible] = useState(false)
+  const [modalContent, setModalContent] = useState('')
+  const [modalTitle, setModalTitle] = useState('')
 
   const onClick = () => {
-    setModalTitle(abstractions.titleModal);
+    setModalTitle(abstractions.titleModal)
     setModalContent(
       <p className="text-paragraph3">
         <p className="mb-[20px]">{abstractions.subtitleModal}</p>
@@ -31,12 +31,13 @@ export default function AboutModal() {
             animation={false}
             className="hover:scale-105"
             icon={<FaWhatsapp size={24} />}
+            id="conversion"
           />
         </div>
-      </p>
-    );
-    setVisible(true);
-  };
+      </p>,
+    )
+    setVisible(true)
+  }
 
   return (
     <div>
@@ -54,11 +55,11 @@ export default function AboutModal() {
         header={modalTitle}
         visible={visible}
         onHide={() => setVisible(false)}
-        style={{ width: "50vw" }}
-        breakpoints={{ "4000px": "60vw", "1024px": "70vw", "641px": "85vw" }}
+        style={{ width: '50vw' }}
+        breakpoints={{ '4000px': '60vw', '1024px': '70vw', '641px': '85vw' }}
       >
         <p className="m-0 ">{modalContent}</p>
       </Dialog>
     </div>
-  );
+  )
 }

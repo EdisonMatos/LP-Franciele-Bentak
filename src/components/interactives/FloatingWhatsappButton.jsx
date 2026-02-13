@@ -1,46 +1,47 @@
-import Modal from "../util/Modal";
-import content from "../../content/content";
-import { useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import whatsappWebm from "../../assets/importAssets/whatsappGif.webp";
-import { getWhatsappLink } from "../util/WhatsappLink"; // Importando a função
+import Modal from '../util/Modal'
+import content from '../../content/content'
+import { useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import whatsappWebm from '../../assets/importAssets/whatsappGif.webp'
+import { getWhatsappLink } from '../util/WhatsappLink' // Importando a função
 
-const whatsappContactLink = `${content.texts.links.ctaWhatsapp}`;
+const whatsappContactLink = `${content.texts.links.ctaWhatsapp}`
 
 const FloatingWhatsappButton = ({ buttonType }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
-  const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop =
-        document.documentElement.scrollTop || document.body.scrollTop;
+        document.documentElement.scrollTop || document.body.scrollTop
 
-      setIsVisible(scrollTop > 100); // O botão aparece após rolar 100px
-    };
+      setIsVisible(scrollTop > 100) // O botão aparece após rolar 100px
+    }
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   const handleClick = () => {
-    if (buttonType === "form") {
-      setOpenModal(!openModal);
+    if (buttonType === 'form') {
+      setOpenModal(!openModal)
     } else {
       // Usando a função getWhatsappLink para determinar o link
-      const link = getWhatsappLink();
-      window.open(link, "_blank");
+      const link = getWhatsappLink()
+      window.open(link, '_blank')
+      gtag_report_conversion()
     }
-  };
+  }
 
   return (
     <button
       className={`${
-        isVisible ? "block animate-fade-in" : "hidden"
+        isVisible ? 'block animate-fade-in' : 'hidden'
       } fixed bottom-2 right-3 p-4 text-secondary z-20 rounded-full focus:outline-none`}
       onClick={handleClick}
     >
@@ -51,11 +52,11 @@ const FloatingWhatsappButton = ({ buttonType }) => {
           alt="Floating Button"
         />
       )}
-      {buttonType === "form" && (
+      {buttonType === 'form' && (
         <Modal isOpen={openModal} setCloseModal={setOpenModal} />
       )}
     </button>
-  );
-};
+  )
+}
 
-export default FloatingWhatsappButton;
+export default FloatingWhatsappButton

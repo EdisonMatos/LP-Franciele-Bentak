@@ -1,7 +1,7 @@
-import React from "react";
-import CustomTag from "../util/CustomTag";
-import MotionDivDownToUp from "../animation/MotionDivDownToUp";
-import { getWhatsappLink } from "../util/WhatsappLink"; // Importando a função
+import React from 'react'
+import CustomTag from '../util/CustomTag'
+import MotionDivDownToUp from '../animation/MotionDivDownToUp'
+import { getWhatsappLink } from '../util/WhatsappLink' // Importando a função
 
 export default function Button({
   icon,
@@ -9,7 +9,7 @@ export default function Button({
   onClick,
   buttonLink,
   className,
-  textclassName = "",
+  textclassName = '',
   size,
   sizeFeatures,
   gap,
@@ -19,45 +19,66 @@ export default function Button({
   color,
   animation = true,
   colorMode,
+  id,
 }) {
   // Define estilos com base no tamanho
-  let textSizeClass = "";
-  if (size === "small") {
-    sizeFeatures = "rounded-[4px] px-[18px] py-[10px]";
-    textSizeClass = "text-paragraph3 font-secondFont";
-    gap = "gap-[10px]";
+  let textSizeClass = ''
+  if (size === 'small') {
+    sizeFeatures = 'rounded-[4px] px-[18px] py-[10px]'
+    textSizeClass = 'text-paragraph3 font-secondFont'
+    gap = 'gap-[10px]'
   } else {
-    sizeFeatures = "rounded-[8px] px-[30px] py-[16px]";
-    textSizeClass = "text-paragraph4 font-secondFont";
-    gap = "gap-[20px]";
+    sizeFeatures = 'rounded-[8px] px-[30px] py-[16px]'
+    textSizeClass = 'text-paragraph4 font-secondFont'
+    gap = 'gap-[20px]'
   }
 
-  const Animation = animation ? MotionDivDownToUp : "div";
-  const CustomTagName = removeAnchor ? "div" : tagName || "a";
+  const Animation = animation ? MotionDivDownToUp : 'div'
+  const CustomTagName = id === 'conversion' ? 'div' : tagName || 'a'
 
   const buttonColors = {
-    dark: "text-white",
-    light: "text-black",
-    default: "text-black",
-  };
-  const buttonColor = buttonColors[colorMode] || buttonColors.default;
+    dark: 'text-white',
+    light: 'text-black',
+    default: 'text-black',
+  }
+  const buttonColor = buttonColors[colorMode] || buttonColors.default
 
-  const shouldRedirectToWhatsapp = !buttonLink && !onClick;
+  const shouldRedirectToWhatsapp = !buttonLink && !onClick
   const finalButtonLink = shouldRedirectToWhatsapp
     ? getWhatsappLink()
-    : buttonLink;
+    : buttonLink
 
   return (
     <CustomTag
       tagName={CustomTagName}
-      {...(removeTarget ? {} : { target: "_blank" })}
+      {...(removeTarget ? {} : { target: '_blank' })}
       {...(removeAnchor ? {} : { href: finalButtonLink })}
+      {...(id === 'conversion' ? {} : { href: finalButtonLink })}
       className="inline-block max-w-full w-fit"
     >
       {animation ? (
         <MotionDivDownToUp className="w-auto">
           <button
-            onClick={onClick}
+            onClick={(e) => {
+              if (id === 'conversion') {
+                e.preventDefault()
+
+                // dispara conversão
+                if (window.gtag_report_conversion) {
+                  window.gtag_report_conversion()
+                }
+
+                // redireciona pro link (whatsapp)
+                if (finalButtonLink) {
+                  window.open(finalButtonLink, '_blank')
+                }
+
+                return
+              }
+
+              // comportamento normal
+              onClick?.()
+            }}
             className={`flex ${className} ${sizeFeatures} bg-primary flex-row items-center justify-around transition ${color} text-secondary desktop1:hover:scale-110`}
           >
             <div
@@ -75,7 +96,26 @@ export default function Button({
       ) : (
         <div className="w-auto">
           <button
-            onClick={onClick}
+            onClick={(e) => {
+              if (id === 'conversion') {
+                e.preventDefault()
+
+                // dispara conversão
+                if (window.gtag_report_conversion) {
+                  window.gtag_report_conversion()
+                }
+
+                // redireciona pro link (whatsapp)
+                if (finalButtonLink) {
+                  window.open(finalButtonLink, '_blank')
+                }
+
+                return
+              }
+
+              // comportamento normal
+              onClick?.()
+            }}
             className={`flex ${className} ${sizeFeatures} bg-primary flex-row items-center justify-around transition ${color} text-secondary desktop1:hover:scale-110`}
           >
             <div
@@ -92,5 +132,5 @@ export default function Button({
         </div>
       )}
     </CustomTag>
-  );
+  )
 }

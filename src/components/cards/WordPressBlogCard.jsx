@@ -1,5 +1,5 @@
-import MotionDivDownToUp from "../animation/MotionDivDownToUp";
-import BlogButton from "../interactives/BlogButton";
+import MotionDivDownToUp from '../animation/MotionDivDownToUp'
+import BlogButton from '../interactives/BlogButton'
 
 export default function WordPressBlogCard({ img, title, subtitle, link }) {
   return (
@@ -7,7 +7,7 @@ export default function WordPressBlogCard({ img, title, subtitle, link }) {
       <MotionDivDownToUp>
         <div
           id="cardBlog"
-          className="w-[350px] font-mainFont flex flex-col desktop1:max-w-[500px] desktop3:max-w-[375px] bg-bgSectionLight rounded-2xl p-[20px]"
+          className="w-[300px] font-mainFont flex flex-col desktop1:max-w-[500px] desktop3:max-w-[375px] bg-bgSectionLight rounded-2xl p-[20px]"
         >
           <div className="w-full max-h-[220px] tablet1:h-[300px] flex justify-center items-center overflow-hidden rounded-2xl">
             <div className="w-full">{img}</div>
@@ -53,5 +53,5 @@ export default function WordPressBlogCard({ img, title, subtitle, link }) {
         </div>
       </MotionDivDownToUp>
     </div>
-  );
+  )
 }

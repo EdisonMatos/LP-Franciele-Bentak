@@ -1,22 +1,22 @@
-import MotionDivDownToUp from "../../animation/MotionDivDownToUp";
-import content from "../../../content/content";
-import Button from "../../interactives/Button";
-import { FaWhatsapp } from "react-icons/fa";
-import "../../../styles/shapeDivs.css";
+import MotionDivDownToUp from '../../animation/MotionDivDownToUp'
+import content from '../../../content/content'
+import Button from '../../interactives/Button'
+import { FaWhatsapp } from 'react-icons/fa'
+import '../../../styles/shapeDivs.css'
 
 export default function Quadrada({ appDownloadButtons, colorMode }) {
   // Definindo cores de fundo com base no tema
   const backgroundClasses = {
-    dark: "from-black to-black",
-    light: "from-white to-white",
-    default: "from-bgSectionDark to-darker",
-  };
+    dark: 'from-black to-black',
+    light: 'from-white to-white',
+    default: 'from-bgSectionDark to-darker',
+  }
 
-  const bgGradient = backgroundClasses[colorMode] || backgroundClasses.default;
-  const titleColor = colorMode === "light" ? "text-black" : "text-white";
-  const subtitleColor = colorMode === "light" ? "text-black" : "text-white";
-  const obsTextColor = colorMode === "light" ? "text-black" : "text-white";
-  const descriptionColor = colorMode === "light" ? "text-black" : "text-white";
+  const bgGradient = backgroundClasses[colorMode] || backgroundClasses.default
+  const titleColor = colorMode === 'light' ? 'text-black' : 'text-white'
+  const subtitleColor = colorMode === 'light' ? 'text-black' : 'text-white'
+  const obsTextColor = colorMode === 'light' ? 'text-black' : 'text-white'
+  const descriptionColor = colorMode === 'light' ? 'text-black' : 'text-white'
 
   return (
     <div
@@ -63,6 +63,7 @@ export default function Quadrada({ appDownloadButtons, colorMode }) {
                     animation
                     className="w-[100%]"
                     icon={<FaWhatsapp size={24} />}
+                    id="conversion"
                   />
                 </div>
 
@@ -133,5 +134,5 @@ export default function Quadrada({ appDownloadButtons, colorMode }) {
         </div>
       </div>
     </div>
-  );
+  )
 }

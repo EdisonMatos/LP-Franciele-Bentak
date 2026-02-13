@@ -1,104 +1,103 @@
-import content from "../../content/content";
-import Button from "../interactives/Button";
-import { FaWhatsapp } from "react-icons/fa";
-import Navbar from "../sectionElements/Navbar";
-import { useNavigate } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll";
-import { useState, useEffect, useRef } from "react";
-import SidebarSocial from "../sectionElements/SidebarSocial";
-import ListGroupSocial from "../sectionElements/ListGroupSocial";
+import content from '../../content/content'
+import Button from '../interactives/Button'
+import { FaWhatsapp } from 'react-icons/fa'
+import Navbar from '../sectionElements/Navbar'
+import { useNavigate } from 'react-router-dom'
+import { Link as ScrollLink } from 'react-scroll'
+import { useState, useEffect, useRef } from 'react'
+import SidebarSocial from '../sectionElements/SidebarSocial'
+import ListGroupSocial from '../sectionElements/ListGroupSocial'
 
 export default function NavbarSocial({ colorMode }) {
-  const navigate = useNavigate();
-  const [scrolling, setScrolling] = useState(false);
-  const [showListGroup, setShowListGroup] = useState(true);
-  const [showSidebar, setShowSidebar] = useState(false);
-  const [showMenuIcon, setShowMenuIcon] = useState(true);
-  const [showSidebarContent, setShowSidebarContent] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [navbarBgWhite, setNavbarBgWhite] = useState(false);
+  const navigate = useNavigate()
+  const [scrolling, setScrolling] = useState(false)
+  const [showListGroup, setShowListGroup] = useState(true)
+  const [showSidebar, setShowSidebar] = useState(false)
+  const [showMenuIcon, setShowMenuIcon] = useState(true)
+  const [showSidebarContent, setShowSidebarContent] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false)
+  const [navbarBgWhite, setNavbarBgWhite] = useState(false)
 
-  const sidebarRef = useRef(null);
+  const sidebarRef = useRef(null)
 
   const handleScroll = () => {
-    const isScrolling = window.scrollY > 0;
-    setScrolling(isScrolling);
-    setNavbarBgWhite(isScrolling);
-  };
+    const isScrolling = window.scrollY > 0
+    setScrolling(isScrolling)
+    setNavbarBgWhite(isScrolling)
+  }
 
   const toggleSidebar = () => {
     if (!isAnimating) {
-      setIsAnimating(true);
-      setShowMenuIcon((prev) => !prev);
-      setShowSidebarContent((prev) => !prev);
+      setIsAnimating(true)
+      setShowMenuIcon((prev) => !prev)
+      setShowSidebarContent((prev) => !prev)
       if (showSidebar) {
         setTimeout(() => {
-          setShowSidebar(false);
-          setIsAnimating(false);
-        }, 940);
+          setShowSidebar(false)
+          setIsAnimating(false)
+        }, 940)
       } else {
-        setShowSidebar(true);
+        setShowSidebar(true)
         setTimeout(() => {
-          setIsAnimating(false);
-        }, 0);
+          setIsAnimating(false)
+        }, 0)
       }
     }
-  };
+  }
 
   const handleResize = () => {
-    setShowListGroup(window.innerWidth >= 768);
-  };
+    setShowListGroup(window.innerWidth >= 768)
+  }
 
   const handleClickOutside = (event) => {
     if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-      handleCloseSidebar();
+      handleCloseSidebar()
     }
-  };
+  }
 
   const handleCloseSidebar = () => {
-    setShowSidebar(false);
-    setShowSidebarContent(false);
-    setIsAnimating(false);
-    setShowMenuIcon(true);
-  };
+    setShowSidebar(false)
+    setShowSidebarContent(false)
+    setIsAnimating(false)
+    setShowMenuIcon(true)
+  }
 
   const handleSidebarItemClick = () => {
-    handleCloseSidebar();
-  };
+    handleCloseSidebar()
+  }
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    document.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleResize)
+    handleResize()
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleResize)
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   const getNavbarClasses = () => {
-    if (colorMode === "light") {
-      return scrolling
-        ? "bg-white shadow-md"
-        : "desktop1:bg-white/20";
+    if (colorMode === 'light') {
+      return scrolling ? 'bg-white shadow-md' : 'desktop1:bg-white/20'
     }
-    if (colorMode === "dark") {
+    if (colorMode === 'dark') {
       return scrolling
-        ? "bg-black shadow-lg border-b-[1px] border-primary"
-        : "bg-gradient-to-b from-black to-transparent border-b-[1px] border-none";
+        ? 'bg-black shadow-lg border-b-[1px] border-primary'
+        : 'bg-gradient-to-b from-black to-transparent border-b-[1px] border-none'
     }
     // default
     return scrolling
-      ? "bg-gradient-to-b from-black to-bgSectionDark bg-opacity-100 shadow-lg border-b-[1px] border-primary"
-      : "bg-gradient-to-b from-black to-transparent border-b-[1px] border-none";
-  };
+      ? 'bg-gradient-to-b from-black to-bgSectionDark bg-opacity-100 shadow-lg border-b-[1px] border-primary'
+      : 'bg-gradient-to-b from-black to-transparent border-b-[1px] border-none'
+  }
 
   return (
     <div className="w-full">
-
-      <div className={`fixed z-20 w-full transition-colors duration-1000 ${getNavbarClasses()}`}>
+      <div
+        className={`fixed z-20 w-full transition-colors duration-1000 ${getNavbarClasses()}`}
+      >
         <Navbar>
           <ScrollLink
             to="home"
@@ -114,8 +113,8 @@ export default function NavbarSocial({ colorMode }) {
               alt={content.texts.navbar.logo.alt}
               className={`bg-transparent max-h-[90px] ${
                 scrolling
-                  ? "w-[90%] tablet1:w-[80%] tablet2:w-[70%] desktop1:w-[70%] desktop2:w-[60%]"
-                  : "my-[20px] w-full "
+                  ? 'w-[90%] tablet1:w-[80%] tablet2:w-[70%] desktop1:w-[70%] desktop2:w-[60%]'
+                  : 'my-[20px] w-full '
               } transition-all duration-1000`}
             />
           </ScrollLink>
@@ -127,6 +126,7 @@ export default function NavbarSocial({ colorMode }) {
                 label={content.texts.navbar.ctaButtonTextResponsive}
                 size="small"
                 icon={<FaWhatsapp />}
+                id="conversion"
               />
             </div>
             <div className="flex items-center desktop1:hidden">
@@ -138,6 +138,5 @@ export default function NavbarSocial({ colorMode }) {
         </Navbar>
       </div>
     </div>
-  );
+  )
 }
-

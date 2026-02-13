@@ -1,28 +1,28 @@
-import content from "../../content/content";
-import { useNavigate } from "react-router-dom";
-import Paragraphs from "../sectionElements/Paragraphs";
-import SectionArea from "../sectionElements/SectionArea";
-import SectionHeader from "../sectionElements/SectionHeader";
-import MotionDivDownToUp from "../animation/MotionDivDownToUp";
-import SectionWrapper from "../sectionElements/SectionWrapper";
-import AccordionExpandDefault from "../interactives/AcordionTwo";
-import Button from "../interactives/Button";
+import content from '../../content/content'
+import { useNavigate } from 'react-router-dom'
+import Paragraphs from '../sectionElements/Paragraphs'
+import SectionArea from '../sectionElements/SectionArea'
+import SectionHeader from '../sectionElements/SectionHeader'
+import MotionDivDownToUp from '../animation/MotionDivDownToUp'
+import SectionWrapper from '../sectionElements/SectionWrapper'
+import AccordionExpandDefault from '../interactives/AcordionTwo'
+import Button from '../interactives/Button'
 
 export default function Faq({ colorMode }) {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   // Classes de tema
   const bgClasses = {
-    dark: "bg-darker",
-    light: "bg-lighter",
-    default: "squares",
-  };
+    dark: 'bg-darker',
+    light: 'bg-lighter',
+    default: 'squares',
+  }
   const textClasses = {
-    dark: "text-white",
-    light: "text-black",
-    default: "text-black",
-  };
-  const bgClass = bgClasses[colorMode] || bgClasses.default;
-  const titleColor = textClasses[colorMode] || textClasses.default;
+    dark: 'text-white',
+    light: 'text-black',
+    default: 'text-black',
+  }
+  const bgClass = bgClasses[colorMode] || bgClasses.default
+  const titleColor = textClasses[colorMode] || textClasses.default
 
   return (
     <>
@@ -50,11 +50,12 @@ export default function Faq({ colorMode }) {
                 label={content.texts.faq.paragraph}
                 textclassName={titleColor}
                 colorMode={colorMode}
+                id="conversion"
               />
             </Paragraphs>
           </MotionDivDownToUp>
         </SectionWrapper>
       </SectionArea>
     </>
-  );
+  )
 }

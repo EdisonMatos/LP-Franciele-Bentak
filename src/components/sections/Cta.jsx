@@ -1,27 +1,27 @@
-import Button from "../interactives/Button";
-import content from "../../content/content";
-import { FaWhatsapp } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-import SectionArea from "../sectionElements/SectionArea";
-import SectionHeader from "../sectionElements/SectionHeader";
-import SectionWrapper from "../sectionElements/SectionWrapper";
+import Button from '../interactives/Button'
+import content from '../../content/content'
+import { FaWhatsapp } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
+import SectionArea from '../sectionElements/SectionArea'
+import SectionHeader from '../sectionElements/SectionHeader'
+import SectionWrapper from '../sectionElements/SectionWrapper'
 
-export default function Cta({ colorMode = "default" }) {
-  const navigate = useNavigate();
+export default function Cta({ colorMode = 'default' }) {
+  const navigate = useNavigate()
 
   // Definir classes de tema
   const bgClasses = {
-    dark: "bg-darker",
-    light: "bg-lighter",
-    default: "squares",
-  };
+    dark: 'bg-darker',
+    light: 'bg-lighter',
+    default: 'squares',
+  }
   const textClasses = {
-    dark: "text-white",
-    light: "text-black",
-    default: "text-black",
-  };
-  const bgClass = bgClasses[colorMode] || bgClasses.default;
-  const textClass = textClasses[colorMode] || textClasses.default;
+    dark: 'text-white',
+    light: 'text-black',
+    default: 'text-black',
+  }
+  const bgClass = bgClasses[colorMode] || bgClasses.default
+  const textClass = textClasses[colorMode] || textClasses.default
 
   return (
     <>
@@ -36,6 +36,7 @@ export default function Cta({ colorMode = "default" }) {
             subtitleColorSet={textClass}
           />
           <Button
+            id="conversion"
             aria-label={content.texts.hero.ctaButtonAriaLabel}
             label={content.texts.cta.ctaButtonText}
             animation
@@ -45,5 +46,5 @@ export default function Cta({ colorMode = "default" }) {
         </SectionWrapper>
       </SectionArea>
     </>
-  );
+  )
 }
