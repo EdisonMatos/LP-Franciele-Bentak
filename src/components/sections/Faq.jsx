@@ -7,6 +7,7 @@ import MotionDivDownToUp from '../animation/MotionDivDownToUp'
 import SectionWrapper from '../sectionElements/SectionWrapper'
 import AccordionExpandDefault from '../interactives/AcordionTwo'
 import Button from '../interactives/Button'
+import { FaWhatsapp } from 'react-icons/fa'
 
 export default function Faq({ colorMode }) {
   const navigate = useNavigate()
@@ -46,10 +47,11 @@ export default function Faq({ colorMode }) {
             <Paragraphs className={`text-center transition hover:scale-110`}>
               <Button
                 className="hoover:scale-0 desktop1:hover:scale-105"
-                color="bg-transparent"
                 label={content.texts.faq.paragraph}
-                textclassName={titleColor}
                 colorMode={colorMode}
+                color={`bg-wpp`}
+                icon={<FaWhatsapp size={24} className="text-labelWpp " />}
+                textclassName="text-labelWpp"
                 id="conversion"
               />
             </Paragraphs>

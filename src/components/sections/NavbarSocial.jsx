@@ -125,8 +125,10 @@ export default function NavbarSocial({ colorMode }) {
                 aria-label={content.texts.hero.ctaButtonAriaLabel}
                 label={content.texts.navbar.ctaButtonTextResponsive}
                 size="small"
-                icon={<FaWhatsapp />}
                 id="conversion"
+                textclassName="text-labelWpp"
+                color={`bg-wpp`}
+                icon={<FaWhatsapp className="text-labelWpp" />}
               />
             </div>
             <div className="flex items-center desktop1:hidden">

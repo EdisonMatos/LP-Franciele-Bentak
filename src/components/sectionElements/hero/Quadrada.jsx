@@ -61,8 +61,9 @@ export default function Quadrada({ appDownloadButtons, colorMode }) {
                     aria-label={content.texts.hero.ctaButtonAriaLabel}
                     label={content.texts.hero.ctaButtonText}
                     animation
-                    className="w-[100%]"
-                    icon={<FaWhatsapp size={24} />}
+                    color={`bg-wpp`}
+                    icon={<FaWhatsapp size={24} className="text-labelWpp " />}
+                    textclassName="text-labelWpp"
                     id="conversion"
                   />
                 </div>

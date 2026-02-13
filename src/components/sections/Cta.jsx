@@ -40,7 +40,9 @@ export default function Cta({ colorMode = 'default' }) {
             aria-label={content.texts.hero.ctaButtonAriaLabel}
             label={content.texts.cta.ctaButtonText}
             animation
-            icon={<FaWhatsapp size={24} />}
+            color={`bg-wpp`}
+            icon={<FaWhatsapp size={24} className="text-labelWpp " />}
+            textclassName="text-labelWpp"
             className={`${textClass}`}
           />
         </SectionWrapper>

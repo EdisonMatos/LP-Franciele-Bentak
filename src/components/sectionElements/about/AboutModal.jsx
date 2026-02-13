@@ -30,7 +30,9 @@ export default function AboutModal() {
             label={content.texts.about.ctaButtonText}
             animation={false}
             className="hover:scale-105"
-            icon={<FaWhatsapp size={24} />}
+            color={`bg-wpp`}
+            icon={<FaWhatsapp size={24} className="text-labelWpp " />}
+            textclassName="text-labelWpp"
             id="conversion"
           />
         </div>
